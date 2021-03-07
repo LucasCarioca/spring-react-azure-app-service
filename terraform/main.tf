@@ -10,7 +10,7 @@ provider "azurerm" {
 
 module "app" {
   source   = "./modules/spring-react-app"
-  name     = "example-spring-react-app"
+  name     = "examplespringreactapp"
   env      = "non-prod"
   location = "Central US"
 }
