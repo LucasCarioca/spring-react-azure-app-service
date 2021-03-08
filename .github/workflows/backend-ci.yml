@@ -1,0 +1,12 @@
+name: Backend CI
+on:
+  push:
+jobs:
+  ci:
+    name: 'Backend CI'
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Backend CI
+      run: make backend-ci

@@ -1,0 +1,12 @@
+name: UI CI
+on:
+  push:
+jobs:
+  ci:
+    name: 'UI CI'
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: UI CI
+      run: make ui-ci
