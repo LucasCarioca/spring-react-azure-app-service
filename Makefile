@@ -30,6 +30,7 @@ ui-build: ./ui
 
 ui-ci: ./ui
 	cd ui; \
+	yarn install; \
 	yarn build; \
 	yarn test
 
