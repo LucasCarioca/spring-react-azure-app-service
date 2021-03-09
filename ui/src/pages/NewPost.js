@@ -6,7 +6,7 @@ const NewPost = () => {
     const [text, setText] = useState('')
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post(`${API_URL}/posts`, {text}).then(response => {
+        axios.post(`${API_URL()}/posts`, {text}).then(response => {
             console.log(response);
             setText('');
             alert('post created');

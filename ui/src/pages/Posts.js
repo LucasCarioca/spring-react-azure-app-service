@@ -7,7 +7,7 @@ const Posts = () => {
     const [posts, setPosts] = useState([]);
 
     const load = () => {
-        axios.get(`${API_URL}/posts`)
+        axios.get(`${API_URL()}/posts`)
             .then(response => setPosts(response.data))
             .catch(error => console.error(error))
     };
@@ -15,7 +15,7 @@ const Posts = () => {
     useEffect(load, []);
 
     const deletePost = (post) => {
-        axios.delete(`${API_URL}/posts/${post.id}`).then(response => {
+        axios.delete(`${API_URL()}/posts/${post.id}`).then(response => {
             console.log(response);
             load();
         }).catch(error => {
