@@ -4,8 +4,8 @@ on:
   # release:
   #   types: [published]
 jobs:
-  terraform:
-    name: 'Terraform Deploy'
+  deploy:
+    name: 'Deploy'
     runs-on: ubuntu-latest
     env:
       ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
@@ -25,4 +25,9 @@ jobs:
     - uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_SP_CREDENTIALS }}
+    - name: Deploy UI
+      uses: azure/CLI@v1
+      with:
+        azcliversion: 2.20.0
+        inlineScript: make ui-deploy-nonprod
     

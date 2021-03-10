@@ -37,3 +37,10 @@ ui-ci: ./ui
 ui-test-watch: ./ui
 	cd ui; \
 	yarn test:watch
+
+ui-deploy-nonprod: ./ui
+	cd ui; \
+	yarn install; \
+	yarn build:nonprod; \
+	az storage blob upload-batch --account-name springreactwebappnonprod -d '$web' -s ./build
+   
