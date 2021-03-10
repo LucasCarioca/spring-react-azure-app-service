@@ -21,4 +21,7 @@ jobs:
         terraform_version: 0.14.7
     - name: Terraform Apply
       run: make terraform-apply
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_SP_CREDENTIALS }}
     
