@@ -1,6 +1,9 @@
 name: UI CI
 on:
   push:
+    pull_request:
+      branches: [ master ]
+      types: [ opened, synchronize, reopened, closed ]
 jobs:
   ci:
     name: 'UI CI'
