@@ -1,6 +1,6 @@
 name: Terraform CI
-# on:
-#   push:
+on:
+  push:
 jobs:
   ci:
     name: 'Terraform CI'

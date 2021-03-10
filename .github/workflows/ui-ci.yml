@@ -1,6 +1,6 @@
 name: UI CI
-# on:
-#   push:
+on:
+  push:
 jobs:
   ci:
     name: 'UI CI'

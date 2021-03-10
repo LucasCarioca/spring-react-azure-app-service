@@ -1,8 +1,8 @@
 name: Deploy
 on:
   push:
-  # release:
-  #   types: [published]
+  release:
+    types: [published]
 jobs:
   deploy:
     name: 'Deploy'
@@ -22,7 +22,7 @@ jobs:
         terraform_version: 0.14.7
     - name: Terraform Apply
       run: make terraform-apply
-    - name: UI CI
+    - name: Build UI Non Prod
       run: make ui-build-nonprod
     - uses: azure/login@v1
       with:
