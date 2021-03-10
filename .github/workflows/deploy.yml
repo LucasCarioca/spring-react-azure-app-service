@@ -29,18 +29,18 @@ jobs:
       run: make terraform-apply
     - name: Build UI Non Prod
       run: make ui-build-nonprod
+    - name: Build Backend
+      run: make backend-build
     - uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_SP_CREDENTIALS }}
-    - name: Deploy UI
+    - name: Deploy UI Non Prod
       uses: azure/CLI@v1
       with:
         azcliversion: 2.20.0
         inlineScript: |
           az storage blob upload-batch --account-name springreactwebappnonprod -d '$web' -s ./ui/build
-    - name: Build Backend
-      run: make backend-build
-    - name: 'Deploy to Azure WebApp'
+    - name: Deploy Backend Non Prod
       uses: azure/webapps-deploy@v2
       with: 
         app-name: springreact-nonprod
