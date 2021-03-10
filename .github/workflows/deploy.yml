@@ -1,8 +1,8 @@
 name: Deploy
 on:
   push:
-  release:
-    types: [published]
+  # release:
+  #   types: [published]
 jobs:
   deploy:
     name: 'Deploy'
@@ -38,4 +38,9 @@ jobs:
         azcliversion: 2.20.0
         inlineScript: |
           az storage blob upload-batch --account-name springreactwebappnonprod -d '$web' -s ./ui/build
-    
+    - name: 'Deploy to Azure WebApp'
+      uses: azure/webapps-deploy@v2
+      with: 
+        app-name: springreact-nonprod
+        publish-profile: ${{ env.AZURE_SP_CREDENTIALS }}
+        package: './backend/build/libs/*.jar'
