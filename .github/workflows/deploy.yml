@@ -22,6 +22,8 @@ jobs:
         terraform_version: 0.14.7
     - name: Terraform Apply
       run: make terraform-apply
+    - name: UI CI
+      run: make ui-build-nonprod
     - uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_SP_CREDENTIALS }}
@@ -29,5 +31,6 @@ jobs:
       uses: azure/CLI@v1
       with:
         azcliversion: 2.20.0
-        inlineScript: make ui-deploy-nonprod
+        inlineScript: |
+          az storage blob upload-batch --account-name springreactwebappnonprod -d '$web' -s ./ui/build
     
