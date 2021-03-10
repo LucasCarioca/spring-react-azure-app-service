@@ -40,6 +40,11 @@ jobs:
         azcliversion: 2.20.0
         inlineScript: |
           az storage blob upload-batch --account-name springreactwebappnonprod -d '$web' -s ./ui/build
+    - run: |
+        ls -al
+        ls ./backend -al
+        ls ./backend/build -al
+        ls ./backend/build/libs -al
     - name: Deploy Backend Non Prod
       uses: azure/webapps-deploy@v2
       with: 
