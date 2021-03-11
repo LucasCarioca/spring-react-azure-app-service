@@ -1,5 +1,6 @@
 # Spring Boot & ReactJS Template
 <img src="./assets/stack.png" style="background-color:white;"/>
+
 [![Terraform](https://github.com/LucasCarioca/spring-react-azure-app-service/actions/workflows/terraform-ci.yml/badge.svg)](https://github.com/LucasCarioca/spring-react-azure-app-service/actions/workflows/terraform-ci.yml)
 [![UI](https://github.com/LucasCarioca/spring-react-azure-app-service/actions/workflows/ui-ci.yml/badge.svg)](https://github.com/LucasCarioca/spring-react-azure-app-service/actions/workflows/ui-ci.yml)
 [![Backend](https://github.com/LucasCarioca/spring-react-azure-app-service/actions/workflows/backend-ci.yml/badge.svg)](https://github.com/LucasCarioca/spring-react-azure-app-service/actions/workflows/backend-ci.yml)
