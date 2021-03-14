@@ -1,7 +1,7 @@
 name: Terraform CI
 on:
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
     types: [ opened, synchronize, reopened, closed ]
 jobs:
   ci:
@@ -14,6 +14,9 @@ jobs:
       ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
       TF_VAR_subscription_id: ${{ secrets.TF_VAR_subscription_id }}
       TF_VAR_tenant_id: ${{ secrets.TF_VAR_tenant_id }}
+      TF_VAR_name: ${{ secrets.TF_VAR_name }}
+      TF_VAR_location: ${{ secrets.TF_VAR_location }}
+      TF_VAR_env: ${{ secrets.TF_VAR_env }}
     steps:
     - name: Checkout
       uses: actions/checkout@v2

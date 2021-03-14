@@ -1,5 +1,8 @@
 variable "tenant_id" {}
 variable "subscription_id" {}
+variable "name" {}
+variable "location" {}
+variable "env" {}
 
 provider "azurerm" {
   features {}
@@ -9,7 +12,7 @@ provider "azurerm" {
 
 module "app" {
   source   = "./modules/spring-react-app"
-  name     = "springreact"
-  env      = "nonprod"
-  location = "Central US"
+  name     = var.name
+  env      = var.env
+  location = var.location
 }
