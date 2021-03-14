@@ -15,7 +15,7 @@ resource "azurerm_app_service_plan" "serviceplan" {
 }
 
 resource "azurerm_app_service" "appservice" {
-  name                = var.be_name
+  name                = "${var.be_name}-bff-${var.env}"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   app_service_plan_id = azurerm_app_service_plan.serviceplan.id
@@ -32,7 +32,7 @@ resource "azurerm_app_service" "appservice" {
 }
 
 resource "azurerm_storage_account" "staticwebapp" {
-  name                      = var.fe_name
+  name                      = var.name
   resource_group_name       = azurerm_resource_group.rg.name
   location                  = azurerm_resource_group.rg.location
   account_tier              = "Standard"
