@@ -4,7 +4,7 @@ resource "azurerm_resource_group" "rg" {
 }
 
 resource "azurerm_app_service_plan" "serviceplan" {
-  name                = "${var.be_name}-plan"
+  name                = "${var.name}-plan"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
 
@@ -15,7 +15,7 @@ resource "azurerm_app_service_plan" "serviceplan" {
 }
 
 resource "azurerm_app_service" "appservice" {
-  name                = "${var.be_name}-bff-${var.env}"
+  name                = "${var.name}-bff-${var.env}"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   app_service_plan_id = azurerm_app_service_plan.serviceplan.id
