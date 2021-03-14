@@ -1,4 +1,3 @@
-variable "name" {}
 variable "env" {}
 variable "location" {}
 variable "fe_name" {}
