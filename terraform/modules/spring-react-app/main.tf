@@ -4,7 +4,7 @@ resource "azurerm_resource_group" "rg" {
 }
 
 resource "azurerm_app_service_plan" "serviceplan" {
-  name                = "${var.env}-appserviceplan"
+  name                = "${var.be_name}-appserviceplan-${var.env}}"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
 
@@ -15,7 +15,7 @@ resource "azurerm_app_service_plan" "serviceplan" {
 }
 
 resource "azurerm_app_service" "appservice" {
-  name                = "${var.name}-${var.env}"
+  name                = "${var.be_name}-${var.env}"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   app_service_plan_id = azurerm_app_service_plan.serviceplan.id
@@ -32,7 +32,7 @@ resource "azurerm_app_service" "appservice" {
 }
 
 resource "azurerm_storage_account" "staticwebapp" {
-  name                      = "${var.name}webapp${var.env}"
+  name                      = "${var.fe_name}${var.env}"
   resource_group_name       = azurerm_resource_group.rg.name
   location                  = azurerm_resource_group.rg.location
   account_tier              = "Standard"

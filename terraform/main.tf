@@ -12,4 +12,6 @@ module "app" {
   name     = "springreact"
   env      = "nonprod"
   location = "Central US"
+  fe_name  = "reactfrontend"
+  be_name  = "springbackend"
 }
