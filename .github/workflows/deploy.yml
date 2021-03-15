@@ -41,10 +41,10 @@ jobs:
       with:
         azcliversion: 2.20.0
         inlineScript: |
-          az storage blob upload-batch --account-name ${{ TF_VAR_name }} -d '$web' -s ./ui/build
+          az storage blob upload-batch --account-name ${{ secrets.TF_VAR_name }} -d '$web' -s ./ui/build
     - name: Deploy Backend Non Prod
       uses: azure/webapps-deploy@v2
       with: 
-        app-name: ${{ TF_VAR_name }}-bff-${{ TF_VAR_env }}
+        app-name: ${{ secrets.TF_VAR_name }}-bff-${{ secrets.TF_VAR_env }}
         publish-profile: ${{ env.AZURE_SP_CREDENTIALS }}
         package: backend/build/libs/*.jar
