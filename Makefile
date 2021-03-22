@@ -47,4 +47,5 @@ ui-test-watch:
 
 ui-start:
 	cd ui; \
+	yarn install; \
 	yarn start
