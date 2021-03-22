@@ -1,40 +1,50 @@
-terraform-validate: ./terraform
+.PHONY := all
+
+terraform-validate: 
 	cd terraform; \
 	terraform init; \
 	terraform fmt; \
 	terraform validate; \
 	terraform plan
 
-terraform-apply: ./terraform
+terraform-apply: 
 	cd terraform; \
 	terraform init; \
 	terraform apply --auto-approve
 
-terraform-destroy: ./terraform
+terraform-destroy:
 	cd terraform; \
 	terraform init; \
 	terraform destroy --auto-approve
 
-backend-build: ./backend
+backend-start:
+	cd backend; \
+	./gradlew bootRun
+
+backend-build:
 	cd backend; \
 	./gradlew build
 
-backend-ci: ./backend
+backend-ci: 
 	cd backend; \
 	./gradlew build; \
 	./gradlew test
 
-ui-build-nonprod: ./ui
+ui-build-nonprod: 
 	cd ui; \
 	yarn install; \
 	yarn build:nonprod; \
 
-ui-ci: ./ui
+ui-ci: 
 	cd ui; \
 	yarn install; \
 	yarn build; \
 	yarn test
 
-ui-test-watch: ./ui
+ui-test-watch:
 	cd ui; \
 	yarn test:watch   
+
+ui-start:
+	cd ui; \
+	yarn start
