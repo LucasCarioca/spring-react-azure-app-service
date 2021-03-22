@@ -17,7 +17,7 @@ In progress...
 
 # Getting started
 
-To start the application run `make start`. This will run both the backend and the frontend applications.
+To start the application locally, run `make start` in your terminal. This will run both the backend and the frontend applications.
 
 To run the frontend individually run `make ui-start` and for the backend run `make backend-start`
 
