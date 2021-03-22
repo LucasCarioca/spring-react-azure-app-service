@@ -14,3 +14,10 @@ A simple starter crud template for deploying a Spring Boot app with ReactJS fron
 
 
 In progress... 
+
+# Getting started
+
+To start the application run `make start`. This will run both the backend and the frontend applications.
+
+To run the frontend individually run `make ui-start` and for the backend run `make backend-start`
+

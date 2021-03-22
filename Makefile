@@ -49,3 +49,6 @@ ui-start:
 	cd ui; \
 	yarn install; \
 	yarn start
+
+start: 
+	npx concurrently -n backend,start -c cyan,green "make backend-start" "make ui-start"
